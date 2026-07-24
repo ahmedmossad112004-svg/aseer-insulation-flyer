@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>إطلاق تلقائي - Contact</title>
+
+<!-- TikTok Pixel Code Start -->
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
+var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
+;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+
+  ttq.load('D9HH0TJC77UAKD58HK7G');
+  ttq.page();
+}(window, document, 'ttq');
+</script>
+<!-- TikTok Pixel Code End -->
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;900&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'Cairo',sans-serif;
+  background:#0a0f14;
+  color:#eef2f4;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:24px;
+  padding:24px;
+}
+.card{
+  width:100%;max-width:380px;
+  background:#161f28;
+  border:1px solid rgba(37,211,102,0.25);
+  border-radius:22px;
+  padding:28px 24px;
+  text-align:center;
+  box-shadow:0 20px 50px rgba(0,0,0,0.5);
+}
+.pixel-id{
+  font-size:11px;
+  color:#5a7a6a;
+  margin-bottom:18px;
+  letter-spacing:.5px;
+  direction:ltr;
+}
+.status-dot{
+  width:14px;height:14px;border-radius:50%;
+  background:#25d366;
+  display:inline-block;
+  margin-left:6px;
+  animation:blink 1s infinite;
+  vertical-align:middle;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.title{font-size:17px;font-weight:800;color:#fff;margin-bottom:6px}
+.sub{font-size:13px;color:#7a9aaa;margin-bottom:22px}
+.counter-ring{
+  width:110px;height:110px;
+  border-radius:50%;
+  border:4px solid rgba(37,211,102,0.15);
+  background:rgba(37,211,102,0.06);
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  margin:0 auto 22px;
+  position:relative;
+}
+.counter-ring::after{
+  content:'';
+  position:absolute;inset:0;
+  border-radius:50%;
+  border:4px solid transparent;
+  border-top-color:#25d366;
+  animation:spin 1.4s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+#count{font-size:34px;font-weight:900;color:#25d366;line-height:1}
+.count-label{font-size:11px;color:#5a7a6a;margin-top:2px}
+
+.log-box{
+  max-height:160px;
+  overflow-y:auto;
+  background:#0d1419;
+  border-radius:12px;
+  padding:10px 12px;
+  text-align:right;
+  margin-bottom:20px;
+}
+.log-entry{
+  font-size:12px;
+  color:#3dd68c;
+  padding:3px 0;
+  border-bottom:1px solid rgba(255,255,255,0.04);
+  display:flex;
+  justify-content:space-between;
+  gap:8px;
+  direction:ltr;
+}
+.log-entry .ltime{color:#3d5a6a;font-size:11px}
+
+.controls{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.btn{
+  padding:10px 22px;border-radius:12px;
+  font-family:'Cairo',sans-serif;
+  font-size:13px;font-weight:700;
+  cursor:pointer;border:none;
+  transition:transform .15s ease, filter .15s ease;
+}
+.btn:active{transform:scale(.95)}
+.btn-start{background:#25d366;color:#fff;box-shadow:0 6px 18px rgba(37,211,102,0.35)}
+.btn-stop{background:#e0602a;color:#fff;box-shadow:0 6px 18px rgba(224,96,42,0.35)}
+.btn-once{background:#2f80ed;color:#fff;box-shadow:0 6px 18px rgba(47,128,237,0.35)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+
+.interval-row{
+  display:flex;align-items:center;gap:10px;
+  justify-content:center;font-size:13px;color:#7a9aaa;margin-top:16px
+}
+.interval-row input{
+  width:70px;padding:6px 8px;
+  border-radius:8px;border:1px solid rgba(255,255,255,0.1);
+  background:#0d1419;color:#fff;
+  text-align:center;font-family:'Cairo',sans-serif;font-size:13px;
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="pixel-id">Pixel: D9HH0TJC77UAKD58HK7G <span class="status-dot"></span></div>
+  <div class="title">إطلاق تلقائي — Contact</div>
+  <div class="sub">يُرسل حدث الاتصال إلى TikTok Pixel تلقائياً</div>
+
+  <div class="counter-ring">
+    <span id="count">0</span>
+    <span class="count-label">حدث مُرسَل</span>
+  </div>
+
+  <div class="log-box" id="log"></div>
+
+  <div class="controls">
+    <button class="btn btn-once"  onclick="fireOnce()">مرة واحدة</button>
+    <button class="btn btn-start" id="btnStart" onclick="startAuto()">تشغيل تلقائي</button>
+    <button class="btn btn-stop"  id="btnStop"  onclick="stopAuto()" disabled>إيقاف</button>
+  </div>
+
+  <div class="interval-row">
+    الفاصل الزمني (ثانية):
+    <input type="number" id="intervalSec" value="5" min="1" max="300" />
+  </div>
+</div>
+
+<script>
+var count = 0;
+var timer = null;
+
+function pad(n){ return n < 10 ? '0'+n : n; }
+function nowStr(){
+  var d = new Date();
+  return pad(d.getHours())+':'+pad(d.getMinutes())+':'+pad(d.getSeconds());
+}
+
+function fireContact(){
+  if(typeof window.ttq !== 'undefined'){
+    window.ttq.track('Contact');
+  }
+  count++;
+  document.getElementById('count').textContent = count;
+
+  var entry = document.createElement('div');
+  entry.className = 'log-entry';
+  entry.innerHTML = '<span>✓ Contact #'+count+'</span><span class="ltime">'+nowStr()+'</span>';
+  var log = document.getElementById('log');
+  log.insertBefore(entry, log.firstChild);
+}
+
+function fireOnce(){
+  fireContact();
+}
+
+function startAuto(){
+  var sec = parseInt(document.getElementById('intervalSec').value, 10) || 5;
+  fireContact();
+  timer = setInterval(fireContact, sec * 1000);
+  document.getElementById('btnStart').disabled = true;
+  document.getElementById('btnStop').disabled = false;
+  document.getElementById('intervalSec').disabled = true;
+}
+
+function stopAuto(){
+  clearInterval(timer);
+  timer = null;
+  document.getElementById('btnStart').disabled = false;
+  document.getElementById('btnStop').disabled = true;
+  document.getElementById('intervalSec').disabled = false;
+}
+
+// Auto-fire once on page load
+window.addEventListener('load', function(){
+  setTimeout(fireContact, 1200);
+});
+</script>
+</body>
+</html>
