@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Contact Bot — عزل عسير</title>
+
+<!-- TikTok Pixel Code Start -->
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
+var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
+;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+  ttq.load('D9HH0TJC77UAKD58HK7G');
+  ttq.page();
+}(window, document, 'ttq');
+</script>
+<!-- TikTok Pixel Code End -->
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;900&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'Cairo',sans-serif;
+  background:#080d12;
+  color:#eef2f4;
+  min-height:100vh;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:16px;padding:20px;
+}
+.card{
+  width:100%;max-width:360px;
+  background:#101820;
+  border:1px solid rgba(37,211,102,0.3);
+  border-radius:20px;padding:24px 20px;
+  text-align:center;
+  box-shadow:0 0 40px rgba(37,211,102,0.08);
+}
+.pxid{font-size:10px;color:#3a5a4a;direction:ltr;margin-bottom:14px}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#25d366;margin-left:4px;animation:blink 1s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.ring{
+  width:120px;height:120px;border-radius:50%;
+  border:3px solid rgba(37,211,102,0.12);
+  background:radial-gradient(circle, rgba(37,211,102,0.08), transparent 70%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  margin:0 auto 18px;position:relative;
+}
+.ring::before{
+  content:'';position:absolute;inset:-3px;border-radius:50%;
+  background:conic-gradient(#25d366 var(--p,0%), transparent 0%);
+  mask:radial-gradient(farthest-side,transparent calc(100% - 4px),white calc(100% - 4px));
+  -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 4px),white calc(100% - 4px));
+  transition:--p .4s ease;
+}
+#count{font-size:40px;font-weight:900;color:#25d366;line-height:1}
+.clabel{font-size:11px;color:#4a7a5a;margin-top:2px}
+.title{font-size:15px;font-weight:800;color:#fff;margin-bottom:4px}
+.sub{font-size:12px;color:#5a8070;margin-bottom:18px}
+
+/* Big fire button */
+.fire-btn{
+  width:100%;padding:16px;border-radius:14px;
+  background:linear-gradient(135deg,#25d366,#1aa64f);
+  color:#fff;font-family:'Cairo',sans-serif;
+  font-size:18px;font-weight:900;border:none;cursor:pointer;
+  box-shadow:0 8px 24px rgba(37,211,102,0.4);
+  transition:transform .12s ease,filter .12s ease;
+  margin-bottom:12px;
+}
+.fire-btn:active{transform:scale(.97);filter:brightness(.9)}
+.fire-btn.running{background:linear-gradient(135deg,#e0602a,#c14e1f);box-shadow:0 8px 24px rgba(224,96,42,0.4)}
+
+/* Speed pills */
+.speed-row{display:flex;gap:8px;justify-content:center;margin-bottom:14px}
+.spill{
+  flex:1;padding:8px 4px;border-radius:10px;
+  border:1.5px solid rgba(255,255,255,0.08);
+  background:rgba(255,255,255,0.03);
+  color:#8aabb0;font-family:'Cairo',sans-serif;
+  font-size:12px;font-weight:700;cursor:pointer;
+  transition:all .15s ease;
+}
+.spill.active,.spill:hover{
+  border-color:#25d366;color:#25d366;
+  background:rgba(37,211,102,0.07);
+}
+
+/* Log */
+.log{
+  background:#060b10;border-radius:10px;
+  max-height:120px;overflow-y:auto;
+  padding:8px 10px;text-align:left;
+  margin-top:12px;
+}
+.le{
+  font-size:11px;color:#25d366;
+  padding:2px 0;border-bottom:1px solid rgba(255,255,255,0.03);
+  display:flex;justify-content:space-between;direction:ltr;
+}
+.le .lt{color:#2a4a3a}
+
+/* Counter ring CSS prop polyfill */
+@property --p{syntax:'<percentage>';inherits:false;initial-value:0%}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="pxid">D9HH0TJC77UAKD58HK7G <span class="dot"></span></div>
+  <div class="title">بوت Contact — TikTok Pixel</div>
+  <div class="sub">يضغط حدث الاتصال تلقائياً</div>
+
+  <div class="ring">
+    <span id="count">0</span>
+    <span class="clabel">حدث مُرسَل</span>
+  </div>
+
+  <div class="speed-row">
+    <button class="spill" data-sec="30">30 ث</button>
+    <button class="spill active" data-sec="10">10 ث</button>
+    <button class="spill" data-sec="5">5 ث</button>
+    <button class="spill" data-sec="2">2 ث</button>
+  </div>
+
+  <button class="fire-btn" id="mainBtn" onclick="toggle()">
+    ▶ ابدأ الإرسال التلقائي
+  </button>
+
+  <div class="log" id="log"></div>
+</div>
+
+<script>
+var count = 0;
+var timer = null;
+var selectedSec = 10;
+var running = false;
+var target = 50; // TikTok needs ~50 events to exit learning phase
+
+// Speed pill selection
+document.querySelectorAll('.spill').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    document.querySelectorAll('.spill').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    selectedSec = parseInt(btn.dataset.sec, 10);
+    if(running){ stopBot(); startBot(); }
+  });
+});
+
+function pad(n){ return n < 10 ? '0'+n : n; }
+function nowStr(){
+  var d = new Date();
+  return pad(d.getHours())+':'+pad(d.getMinutes())+':'+pad(d.getSeconds());
+}
+
+function fire(){
+  if(typeof window.ttq !== 'undefined'){
+    window.ttq.track('Contact');
+  }
+  count++;
+  document.getElementById('count').textContent = count;
+
+  // Update ring progress toward target 50
+  var pct = Math.min(count / target * 100, 100);
+  document.querySelector('.ring').style.setProperty('--p', pct + '%');
+
+  // Log entry
+  var le = document.createElement('div');
+  le.className = 'le';
+  le.innerHTML = '<span>✓ Contact #'+count+'</span><span class="lt">'+nowStr()+'</span>';
+  var log = document.getElementById('log');
+  log.insertBefore(le, log.firstChild);
+}
+
+function startBot(){
+  running = true;
+  fire();
+  timer = setInterval(fire, selectedSec * 1000);
+  document.getElementById('mainBtn').textContent = '⏹ إيقاف الإرسال';
+  document.getElementById('mainBtn').classList.add('running');
+}
+
+function stopBot(){
+  running = false;
+  clearInterval(timer);
+  timer = null;
+  document.getElementById('mainBtn').textContent = '▶ ابدأ الإرسال التلقائي';
+  document.getElementById('mainBtn').classList.remove('running');
+}
+
+function toggle(){
+  if(running){ stopBot(); } else { startBot(); }
+}
+
+// Auto-start on load after pixel is ready
+window.addEventListener('load', function(){
+  setTimeout(startBot, 1500);
+});
+</script>
+</body>
+</html>
